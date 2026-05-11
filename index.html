@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Downloader Pro | Fast & HD Download</title>
+    <style>
+        :root { --primary: #ff0000; --dark: #1a1a1a; --blue: #003366; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f0f2f5; text-align: center; color: #333; }
+        
+        /* Header */
+        .header { background: var(--dark); color: white; padding: 30px 15px; border-bottom: 4px solid var(--primary); }
+        .header h1 { margin: 0; font-size: 28px; }
+        
+        /* Main Container */
+        .container { max-width: 600px; margin: 30px auto; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        h2 { font-size: 18px; margin-bottom: 20px; color: #555; }
+        
+        /* Input Box */
+        input[type="text"] { 
+            width: 90%; 
+            padding: 15px; 
+            border: 2px solid #ddd; 
+            border-radius: 8px; 
+            font-size: 16px; 
+            outline: none; 
+            margin-bottom: 15px;
+        }
+        input:focus { border-color: var(--primary); }
+        
+        /* Main Download Button */
+        .download-btn { 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            padding: 15px 30px; 
+            border-radius: 8px; 
+            font-size: 18px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            width: 100%; 
+        }
+        .download-btn:hover { background: #cc0000; }
+
+        /* Direct Link Ad Section (Paisa Kamane Ke Liye) */
+        .ad-box { 
+            margin-top: 20px; 
+            padding: 15px; 
+            background: #fff9e6; 
+            border: 1px dashed #ffcc00; 
+            border-radius: 8px; 
+        }
+        .ad-link { 
+            color: var(--blue); 
+            font-weight: bold; 
+            text-decoration: underline; 
+            cursor: pointer;
+        }
+
+        /* Support List */
+        .sites-list { margin-top: 30px; display: flex; justify-content: space-around; font-size: 12px; color: #888; }
+        
+        #status { margin-top: 20px; font-weight: bold; }
+        
+        footer { margin-top: 50px; padding: 20px; font-size: 14px; color: #888; background: #fff; }
+        .nav-footer { margin-bottom: 10px; }
+        .nav-footer a { color: #888; text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🚀 Video Downloader Pro</h1>
+    <p>YouTube, FB, Insta Videos Download Karein</p>
+</div>
+
+<div class="container">
+    <h2>Paste Video URL Below:</h2>
+    
+    <input type="text" id="videoLink" placeholder="https://www.social-media-link.com/video...">
+    
+    <button class="download-btn" onclick="startDownload()">Generate Download Link</button>
+
+    <div id="status"></div>
+
+    <div class="ad-box">
+        <p>Agar Download shuru na ho, toh niche click karein:</p>
+        <a href="APNA_ADSTERRA_DIRECT_LINK_YAHAN_DALO" target="_blank" class="ad-link">Server 2 (High Speed Download)</a>
+    </div>
+
+    <div class="sites-list">
+        <span>✓ Instagram</span>
+        <span>✓ Facebook</span>
+        <span>✓ Twitter</span>
+        <span>✓ Pinterest</span>
+    </div>
+</div>
+
+<footer>
+    <div class="nav-footer">
+        <a href="index.html">Home</a> | 
+        <a href="privacy-policy.html">Privacy Policy</a> | 
+        <a href="contact-us.html">Contact Us</a>
+    </div>
+    <p>&copy; 2026 Video Downloader - Akash Tarar</p>
+</footer>
+
+<script>
+    function startDownload() {
+        let videoUrl = document.getElementById('videoLink').value;
+        let status = document.getElementById('status');
+
+        if(videoUrl == "") {
+            alert("Bhai, pehle link toh paste karo!");
+            return;
+        }
+
+        status.innerHTML = "🔄 Processing... Please wait!";
+        status.style.color = "blue";
+
+        // 3 Second baad redirect karega
+        setTimeout(function() {
+            // Ye user ko ek aise page par bhej dega jahan download link turant mil jaye
+            window.open("https://en.savefrom.net/?url=" + videoUrl, "_blank");
+            status.innerHTML = "✅ Download Page Khul Gaya!";
+            status.style.color = "green";
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
