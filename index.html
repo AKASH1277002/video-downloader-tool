@@ -1,24 +1,44 @@
-<div style="text-align: center; font-family: Arial; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-    <h3>YouTube Video Downloader</h3>
-    <input type="text" id="videoUrl" placeholder="Paste YouTube Link Here..." style="width: 80%; padding: 10px; margin-bottom: 10px;">
-    <br>
-    <button onclick="downloadVideo()" style="padding: 10px 20px; background-color: #ff0000; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        Download Now
-    </button>
-    <p id="status" style="margin-top: 15px;"></p>
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Downloader - Gujarat News Portal</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f4f4f4; text-align: center; padding: 50px; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 500px; margin: auto; }
+        h2 { color: #ff0000; }
+        input { width: 90%; padding: 12px; margin: 20px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { background: #ff0000; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%; }
+        button:hover { background: #cc0000; }
+        .footer { margin-top: 20px; font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>YouTube Video Downloader</h2>
+    <p>કોઈપણ યુટ્યુબ વિડિયોની લિંક અહીં પેસ્ટ કરો</p>
+    
+    <input type="text" id="videoLink" placeholder="https://www.youtube.com/watch?v=...">
+    <button onclick="startDownload()">Download Now</button>
+
+    <div class="footer">
+        © 2026 Gujarat News Portal - Akash Tarar
+    </div>
 </div>
 
 <script>
-function downloadVideo() {
-    let url = document.getElementById('videoUrl').value;
-    if(url === "") {
-        alert("Please paste a URL first!");
-        return;
+function startDownload() {
+    var url = document.getElementById('videoLink').value;
+    if(url.trim() === "") {
+        alert("મહેરબાની કરીને લિંક પેસ્ટ કરો!");
+    } else {
+        // Redirecting to a safe downloader service
+        window.open("https://9xbuddy.com/process?url=" + encodeURIComponent(url), "_blank");
     }
-    document.getElementById('status').innerHTML = "Processing... Please wait.";
-    
-    // Yahan hum third-party API ka use kar sakte hain
-    let downloadLink = "https://9xbuddy.com/process?url=" + url;
-    window.open(downloadLink, '_blank');
 }
 </script>
+
+</body>
+</html>
