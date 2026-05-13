@@ -1,0 +1,24 @@
+<div style="text-align: center; font-family: Arial; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+    <h3>YouTube Video Downloader</h3>
+    <input type="text" id="videoUrl" placeholder="Paste YouTube Link Here..." style="width: 80%; padding: 10px; margin-bottom: 10px;">
+    <br>
+    <button onclick="downloadVideo()" style="padding: 10px 20px; background-color: #ff0000; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Download Now
+    </button>
+    <p id="status" style="margin-top: 15px;"></p>
+</div>
+
+<script>
+function downloadVideo() {
+    let url = document.getElementById('videoUrl').value;
+    if(url === "") {
+        alert("Please paste a URL first!");
+        return;
+    }
+    document.getElementById('status').innerHTML = "Processing... Please wait.";
+    
+    // Yahan hum third-party API ka use kar sakte hain
+    let downloadLink = "https://9xbuddy.com/process?url=" + url;
+    window.open(downloadLink, '_blank');
+}
+</script>
