@@ -2,20 +2,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NovaStream</title>
+  <title>NovaStream Pro</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
     }body {
-  background: #0f172a;
+  background:
+  radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 30%),
+  linear-gradient(to bottom, #020617, #0f172a);
+  overflow-x:hidden;
   color: white;
   min-height: 100vh;
 }
 
 header {
+  box-shadow: 0 4px 25px rgba(0,0,0,0.4);
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
   padding: 18px 30px;
@@ -29,6 +36,7 @@ header {
 }
 
 .logo {
+  letter-spacing:1px;
   font-size: 28px;
   font-weight: bold;
   color: #38bdf8;
@@ -40,6 +48,9 @@ header {
 }
 
 .hero h1 {
+  background: linear-gradient(90deg,#38bdf8,#ffffff,#38bdf8);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
   font-size: 45px;
   margin-bottom: 15px;
 }
@@ -52,6 +63,8 @@ header {
 }
 
 .video-section {
+  position:relative;
+  overflow:hidden;
   width: 95%;
   max-width: 1100px;
   margin: 40px auto;
@@ -62,6 +75,7 @@ header {
 }
 
 iframe {
+  box-shadow: 0 0 40px rgba(56,189,248,0.2);
   width: 100%;
   height: 600px;
   border: none;
@@ -78,6 +92,7 @@ iframe {
 }
 
 .btn {
+  box-shadow: 0 0 20px rgba(56,189,248,0.25);
   padding: 12px 24px;
   border: none;
   border-radius: 12px;
@@ -90,6 +105,7 @@ iframe {
 }
 
 .btn:hover {
+  box-shadow:0 0 30px rgba(56,189,248,0.5);
   transform: scale(1.05);
   background: #0ea5e9;
 }
@@ -122,6 +138,7 @@ iframe {
 }
 
 footer {
+  background: rgba(255,255,255,0.03);
   text-align: center;
   padding: 25px;
   color: #94a3b8;
@@ -151,15 +168,29 @@ footer {
       dark theme, and direct TeraBox video embedding.
     </p>
   </section>  <section class="video-section">
-    <iframe
-      src="https://1024terabox.com/s/1MTX6LSIfzIr0solmraKgnQ"
-      allowfullscreen>
-    </iframe><div class="controls">
-  <a class="btn" href="https://1024terabox.com/s/1MTX6LSIfzIr0solmraKgnQ" target="_blank">
+    <div style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap; justify-content:center;">
+      <input 
+        type="text" 
+        id="videoLink" 
+        placeholder="Paste your TeraBox video link here..." 
+        style="flex:1; min-width:250px; padding:14px; border:none; border-radius:12px; outline:none; font-size:16px; background:#1e293b; color:white;"
+      /><button 
+    onclick="loadVideo()"
+    class="btn">
+    🚀 Load Video
+  </button>
+</div>
+<iframe id="videoFrame"
+  src="https://1024terabox.com/s/1MTX6LSIfzIr0solmraKgnQ"
+  allowfullscreen>
+</iframe>
+
+<div class="controls">
+  <a id="playBtn" class="btn" href="https://1024terabox.com/s/1MTX6LSIfzIr0solmraKgnQ" target="_blank">
     ▶ Play Video
   </a>
 
-  <a class="btn" href="https://1024terabox.com/s/1MTX6LSIfzIr0solmraKgnQ" target="_blank">
+  <a id="downloadBtn" class="btn" href="https://1024terabox.com/s/1MTX6LSIfzIr0solmraKgnQ" target="_blank">
     ⬇ Download
   </a>
 </div>
@@ -183,7 +214,48 @@ footer {
   <p>Enjoy videos in fullscreen mode with immersive viewing.</p>
 </div>
 
+  </section>  <section style="width:90%; max-width:1200px; margin:auto; padding-bottom:60px;">
+    <h2 style="text-align:center; margin-bottom:30px; font-size:35px;">🔥 Trending Videos</h2><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;">
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop" style="width:100%; border-radius:15px; margin-bottom:15px; height:180px; object-fit:cover;">
+    <h3>Action Stream</h3>
+    <p>Ultra cinematic streaming experience with premium vibes.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop" style="width:100%; border-radius:15px; margin-bottom:15px; height:180px; object-fit:cover;">
+    <h3>Movie Night</h3>
+    <p>Watch content smoothly with fullscreen controls.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop" style="width:100%; border-radius:15px; margin-bottom:15px; height:180px; object-fit:cover;">
+    <h3>Nova Originals</h3>
+    <p>Premium dark UI inspired by modern OTT platforms.</p>
+  </div>
+
+</div>
+
   </section>  <footer>
     © 2026 NovaStream • Crafted for cinematic vibes 🌌
-  </footer></body>
+  </footer>  <script>
+    function loadVideo() {
+      document.getElementById('videoFrame').style.opacity = '0.3';
+      const link = document.getElementById('videoLink').value;
+
+      if(link.trim() === '') {
+        alert('Please paste a TeraBox link');
+        return;
+      }
+
+      document.getElementById('videoFrame').src = link;
+      document.getElementById('playBtn').href = link;
+      document.getElementById('downloadBtn').href = link;
+
+      setTimeout(()=>{
+        document.getElementById('videoFrame').style.opacity = '1';
+      },1000);
+    }
+  </script></body>
 </html>
