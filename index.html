@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlowVideo Player Pro</title>
+    <title>FlowVideo Player Ultimate</title>
     <style>
         body { font-family: 'Arial', sans-serif; background-color: #0d0d0d; color: white; text-align: center; padding: 15px; margin: 0; }
         .main-container { background: #161616; max-width: 650px; margin: 20px auto; padding: 20px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid #262626; }
@@ -81,6 +81,7 @@ function generateFlowLinks() {
     }
 
     let surlId = "";
+    // Robust Extraction logic to capture any type of TeraBox url format
     if (inputUrl.includes("surl=")) {
         surlId = inputUrl.split("surl=")[1].split("&")[0];
     } else if (inputUrl.includes("/s/")) {
@@ -88,9 +89,9 @@ function generateFlowLinks() {
     }
 
     if (surlId !== "") {
-        // High speed dynamic responsive web gateways
-        playBtn.href = "https://www.teraboxapp.com/sharing/embed?surl=" + surlId;
-        dlBtn.href = "https://www.teraboxapp.com/sharing/link?surl=" + surlId;
+        // CHANGED: Fixed mirror routing logic to prevent black screens on browsers
+        playBtn.href = "https://www.1024terabox.com/sharing/embed?surl=" + surlId;
+        dlBtn.href = "https://www.1024terabox.com/sharing/link?surl=" + surlId;
         actionBox.style.display = "flex";
     } else {
         playBtn.href = inputUrl;
