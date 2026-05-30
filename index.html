@@ -1,346 +1,77 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NovaStream Pro</title>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }body {
-  background:
-  radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 30%),
-  linear-gradient(to bottom, #020617, #0f172a);
-  overflow-x:hidden;
-  color: white;
-  min-height: 100vh;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Website</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
 }
-
-header {
-  box-shadow: 0 4px 25px rgba(0,0,0,0.4);
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  padding: 18px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+header{
+    background:#007bff;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
-
-.logo {
-  letter-spacing:1px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #38bdf8;
+nav{
+    background:#333;
+    padding:10px;
+    text-align:center;
 }
-
-.hero {
-  text-align: center;
-  padding: 60px 20px 30px;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
 }
-
-.hero h1 {
-  background: linear-gradient(90deg,#38bdf8,#ffffff,#38bdf8);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  font-size: 45px;
-  margin-bottom: 15px;
+section{
+    padding:40px;
+    text-align:center;
 }
-
-.hero p {
-  color: #cbd5e1;
-  max-width: 700px;
-  margin: auto;
-  line-height: 1.6;
+button{
+    background:#007bff;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:5px;
+    cursor:pointer;
 }
-
-.video-section {
-  position:relative;
-  overflow:hidden;
-  width: 95%;
-  max-width: 1100px;
-  margin: 40px auto;
-  background: rgba(255,255,255,0.05);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:15px;
+    position:fixed;
+    bottom:0;
+    width:100%;
 }
-
-iframe {
-  box-shadow: 0 0 40px rgba(56,189,248,0.2);
-  width: 100%;
-  height: 600px;
-  border: none;
-  border-radius: 15px;
-  background: black;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  box-shadow: 0 0 20px rgba(56,189,248,0.25);
-  padding: 12px 24px;
-  border: none;
-  border-radius: 12px;
-  background: #38bdf8;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  text-decoration: none;
-}
-
-.btn:hover {
-  box-shadow:0 0 30px rgba(56,189,248,0.5);
-  transform: scale(1.05);
-  background: #0ea5e9;
-}
-
-.features {
-  width: 90%;
-  max-width: 1200px;
-  margin: 70px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 20px;
-}
-
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 25px;
-  border-radius: 18px;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  background: rgba(255,255,255,0.08);
-}
-
-.card h3 {
-  margin-bottom: 10px;
-  color: #38bdf8;
-}
-
-footer {
-  background: rgba(255,255,255,0.03);
-  text-align: center;
-  padding: 25px;
-  color: #94a3b8;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  margin-top: 50px;
-}
-
-@media(max-width:768px){
-  .hero h1 {
-    font-size: 30px;
-  }
-
-  iframe {
-    height: 250px;
-  }
-}
-
-  </style>
+</style>
 </head>
-<body>  <header>
-    <div class="logo">NovaStream</div>
-    <div>🎬 Premium Video Player</div>
-  </header>  <section class="hero">
-    <h1>Watch TeraBox Videos Smoothly 🚀</h1>
-    <p>
-      A stylish modern streaming website with fullscreen player, mobile support,
-      dark theme, and direct TeraBox video embedding.
-    </p>
-  </section>  <section class="video-section">
-    <div style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap; justify-content:center;">
-      <input 
-        type="text" 
-        id="videoLink" 
-        placeholder="Paste your TeraBox video link here..." 
-        style="flex:1; min-width:250px; padding:14px; border:none; border-radius:12px; outline:none; font-size:16px; background:#1e293b; color:white;"
-      /><button 
-    onclick="extractAndPlay()"
-    class="btn">
-    🚀 Load Video
-  </button>
-</div>
-<video id="videoFrame" controls playsinline
-  src="https://1024terabox.com/s/1MTX6LSIfzIr0solmraKgnQ"
-  style="width:100%; border-radius:15px; background:black;">
-  <source id="videoSource" src="" type="video/mp4">
-  Your browser does not support video.
-</video>
+<body>
 
-<div class="controls">
-  <a id="playBtn" class="btn" href="https://1024terabox.com/s/1MTX6LSIfzIr0solmraKgnQ" target="_blank">
-    ▶ Play Video
-  </a>
+<header>
+    <h1>Welcome To My Website</h1>
+    <p>Simple & Fast Website</p>
+</header>
 
-  <a id="downloadBtn" class="btn" href="https://1024terabox.com/s/1MTX6LSIfzIr0solmraKgnQ" target="_blank">
-    ⬇ Download
-  </a>
-</div>
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</nav>
 
-  </section>  <section class="features">
-    <div class="card">
-      <h3>⚡ Fast Streaming</h3>
-      <p>Smooth playback experience on mobile and desktop devices.</p>
-    </div><div class="card">
-  <h3>🌙 Dark Modern UI</h3>
-  <p>Clean cinematic design with glassmorphism effects.</p>
-</div>
+<section>
+    <h2>Hello Visitor 👋</h2>
+    <p>This website is working successfully.</p>
+    <button onclick="alert('Welcome!')">Click Me</button>
+</section>
 
-<div class="card">
-  <h3>📱 Mobile Friendly</h3>
-  <p>Responsive layout that looks great on every screen.</p>
-</div>
+<footer>
+    © 2026 My Website
+</footer>
 
-<div class="card">
-  <h3>🎥 Fullscreen Player</h3>
-  <p>Enjoy videos in fullscreen mode with immersive viewing.</p>
-</div>
-
-  </section>  <section style="width:90%; max-width:1200px; margin:auto; padding-bottom:60px;">
-    <h2 style="text-align:center; margin-bottom:30px; font-size:35px;">🔥 Trending Videos</h2><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;">
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop" style="width:100%; border-radius:15px; margin-bottom:15px; height:180px; object-fit:cover;">
-    <h3>Action Stream</h3>
-    <p>Ultra cinematic streaming experience with premium vibes.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop" style="width:100%; border-radius:15px; margin-bottom:15px; height:180px; object-fit:cover;">
-    <h3>Movie Night</h3>
-    <p>Watch content smoothly with fullscreen controls.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop" style="width:100%; border-radius:15px; margin-bottom:15px; height:180px; object-fit:cover;">
-    <h3>Nova Originals</h3>
-    <p>Premium dark UI inspired by modern OTT platforms.</p>
-  </div>
-
-</div>
-
-  </section>  <footer>
-    © 2026 NovaStream • Crafted for cinematic vibes 🌌
-  </footer>  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />  <script>
-    const player = new Plyr('#videoFrame', {
-      controls: [
-        'play-large','restart','rewind','play','fast-forward','progress','current-time','duration','mute','volume','settings','fullscreen'
-      ],
-      settings:['quality','speed'],
-      fullscreen:{ enabled:true }
-    });
-    function loadVideo() {
-      document.getElementById('videoFrame').style.opacity = '0.3';
-      const link = document.getElementById('videoLink').value;
-
-      if(link.trim() === '') {
-        alert('Please paste a TeraBox link');
-        return;
-      }
-
-      document.getElementById('videoSource').src = link;
-      player.source = {
-        type: 'video',
-        sources: [
-          {
-            src: link,
-            type: 'video/mp4'
-          }
-        ]
-      };
-      document.getElementById('playBtn').href = link;
-      document.getElementById('downloadBtn').href = link;
-
-      setTimeout(()=>{
-        document.getElementById('videoFrame').style.opacity = '1';
-      },1000);
-    }
-  </script>  <script>
-    async function extractAndPlay() {
-      const link = document.getElementById('videoLink').value;
-
-      if (!link) {
-        alert('Paste TeraBox link first');
-        return;
-      }
-
-      try {
-        const response = await fetch(`http://localhost:3000/extract?url=${encodeURIComponent(link)}`);
-        const data = await response.json();
-
-        if (data.video) {
-          document.getElementById('videoSource').src = data.video;
-
-          player.source = {
-            type: 'video',
-            sources: [
-              {
-                src: data.video,
-                type: 'video/mp4'
-              }
-            ]
-          };
-
-          document.getElementById('playBtn').href = data.video;
-          document.getElementById('downloadBtn').href = data.video;
-        } else {
-          alert('Video extraction failed');
-        }
-      } catch (e) {
-        console.log(e);
-        alert('Backend server not running');
-      }
-    }
-  </script>  <!-- ================= BACKEND SERVER CODE ================= -->  <!-- Save below code as server.js -->  <!--
-
-const express = require('express');
-const cors = require('cors');
-const axios = require('axios');
-
-const app = express();
-app.use(cors());
-
-app.get('/extract', async (req, res) => {
-  try {
-    const url = req.query.url;
-
-    // Demo direct stream test
-    // Replace with real extractor logic/API
-
-    const demoVideo = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
-
-    res.json({
-      video: demoVideo
-    });
-
-  } catch (err) {
-    res.json({ error: true });
-  }
-});
-
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
-});
-
-  --></body>
+</body>
 </html>
