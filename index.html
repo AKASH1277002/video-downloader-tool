@@ -1,76 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gu">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Website</title>
-<style>
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f4f4f4;
-}
-header{
-    background:#007bff;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-nav{
-    background:#333;
-    padding:10px;
-    text-align:center;
-}
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-}
-section{
-    padding:40px;
-    text-align:center;
-}
-button{
-    background:#007bff;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:5px;
-    cursor:pointer;
-}
-footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:15px;
-    position:fixed;
-    bottom:0;
-    width:100%;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Cloth & Designer Studio</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #0f0f0f; color: white; margin: 0; padding: 0; text-align: center; }
+        header { background: #1a1a1a; padding: 20px; border-bottom: 2px solid #ff3366; }
+        header h1 { margin: 0; color: #ff3366; font-size: 28px; }
+        header p { margin: 5px 0 0 0; color: #b3b3b3; font-size: 14px; }
+        
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 15px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        
+        /* Product Card Style */
+        .product-card { background: #161616; border: 1px solid #2b2b2b; border-radius: 12px; width: 280px; overflow: hidden; transition: 0.3s; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .product-card:hover { transform: translateY(-5px); border-color: #ff3366; box-shadow: 0 5px 20px rgba(255,51,102,0.2); }
+        
+        /* Kapdo ki photo ke liye holder (Aap apni photo ka URL lagana) */
+        .product-img { width: 100%; height: 280px; object-fit: cover; background: #222; }
+        
+        .product-info { padding: 15px; }
+        .product-title { font-size: 18px; font-weight: bold; color: white; margin: 0 0 8px 0; }
+        .product-desc { font-size: 12px; color: #b3b3b3; margin: 0 0 12px 0; line-height: 1.4; }
+        
+        .price-tag { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .current-price { font-size: 20px; font-weight: bold; color: #00ff66; }
+        .old-price { font-size: 14px; color: #888; text-decoration: line-through; }
+        
+        /* WhatsApp Order Button */
+        .btn-whatsapp { background: #25d366; color: white; font-weight: bold; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; display: block; transition: 0.3s; font-size: 15px; }
+        .btn-whatsapp:hover { background: #20ba5a; box-shadow: 0 0 10px rgba(37,211,102,0.4); }
+        
+        footer { background: #1a1a1a; padding: 15px; color: #888; font-size: 12px; margin-top: 50px; border-top: 1px solid #2b2b2b; }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1>Welcome To My Website</h1>
-    <p>Simple & Fast Website</p>
+    <h1>Akash Designer Studio</h1>
+    <p>ખાસ ડિઝાઈનર બ્લાઉઝ અને લેટેસ્ટ કપડાંનું કલેક્શન</p>
 </header>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-</nav>
+<div class="container">
 
-<section>
-    <h2>Hello Visitor 👋</h2>
-    <p>This website is working successfully.</p>
-    <button onclick="alert('Welcome!')">Click Me</button>
-</section>
+    <!-- PRODUCT 1: Designer Blouse -->
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500" class="product-img" alt="Designer Blouse">
+        <div class="product-info">
+            <div class="product-title">Premium Designer Blouse</div>
+            <div class="product-desc">પરફેક્ટ ફિટિંગ અને આકર્ષક કટિંગ સાથે ખાસ બ્લાઉઝ પેટર્ન.</div>
+            <div class="price-tag">
+                <div>
+                    <span class="current-price">₹499</span>
+                    <span class="old-price">₹899</span>
+                </div>
+            </div>
+            <!-- Yahan apna number lagana mobile= ke baad -->
+            <a href="https://wa.me/91YOURNUMBER?text=Hi%20Akash,%20mujhe%20'Premium%20Designer%20Blouse'%20kharidna%20hai." target="_blank" class="btn-whatsapp">🟢 WhatsApp પર ઓર્ડર કરો</a>
+        </div>
+    </div>
+
+    <!-- PRODUCT 2: Cotton Dress Material -->
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=500" class="product-img" alt="Dress Material">
+        <div class="product-info">
+            <div class="product-title">Designer Dress Material</div>
+            <div class="product-desc">ઉનાળા માટે એકદમ આરામદાયક કોટન ડ્રેસ મટીરીયલ કાપડ.</div>
+            <div class="price-tag">
+                <div>
+                    <span class="current-price">₹699</span>
+                    <span class="old-price">₹1200</span>
+                </div>
+            </div>
+            <a href="https://wa.me/91YOURNUMBER?text=Hi%20Akash,%20mujhe%20'Designer%20Dress%20Material'%20kharidna%20hai." target="_blank" class="btn-whatsapp">🟢 WhatsApp પર ઓર્ડર કરો</a>
+        </div>
+    </div>
+
+    <!-- PRODUCT 3: Custom Pattern Drafting -->
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1524275539700-cf51138f679b?w=500" class="product-img" alt="Sleeve Cutting Pattern">
+        <div class="product-info">
+            <div class="product-title">Blouse & Sleeve Patterns</div>
+            <div class="product-desc">સિલાઈ કામ માટે રેડીમેડ ફાર્મા અને કટિંગ પેટર્ન પેપર.</div>
+            <div class="price-tag">
+                <div>
+                    <span class="current-price">₹299</span>
+                    <span class="old-price">₹500</span>
+                </div>
+            </div>
+            <a href="https://wa.me/91YOURNUMBER?text=Hi%20Akash,%20mujhe%20'Blouse%20and%20Sleeve%20Patterns'%20kharidna%20hai." target="_blank" class="btn-whatsapp">🟢 WhatsApp પર ઓર્ડર કરો</a>
+        </div>
+    </div>
+
+</div>
 
 <footer>
-    © 2026 My Website
+    <p>© 2026 Akash Designer Studio. All Rights Reserved.</p>
 </footer>
 
 </body>
